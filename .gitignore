@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+/nbproject/
+/nbproject/private/
+/public/uploads/
+app/storage
