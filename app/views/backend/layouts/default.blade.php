@@ -59,11 +59,11 @@
 			@include('backend/inc/header')
 
 			<div class="row">
-				<div class="col-md-2 sidebar nopr">
+				<div class="col-md-3 sidebar nopr">
 					<!-- Nav -->
 					@include('backend/inc/nav')
 				</div>
-				<div class="col-md-10">
+				<div class="col-md-9">
 					<!-- Notifications -->
 					@include('frontend/notifications')
 					<!-- Content -->
@@ -74,7 +74,7 @@
 			<!-- Footer -->
 			<footer>
 				<div class="copyright">
-		        	Copyright © 2013. All rights reserved. Powered by <a target="_blank" href="http://cms.binhbeer.com">BBCMS</a>
+		        	Copyright © 2013. All rights reserved. Powered by <a target="_blank" href="http://dungdn.com">BBCMS</a>
 		        </div>
 			</footer>
 		</div>
