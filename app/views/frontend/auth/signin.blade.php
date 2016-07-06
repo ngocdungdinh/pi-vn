@@ -1,4 +1,4 @@
-@extends('frontend/layouts/default')
+@extends('frontend/layouts/auth')
 
 {{-- Page title --}}
 @section('title')
@@ -7,7 +7,6 @@
 
 {{-- Page content --}}
 @section('content')
-<hr />
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Đăng nhập</h3>

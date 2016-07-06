@@ -36,15 +36,25 @@ Sửa chuyên mục ::
 		</div>
 
 		<div class="form-group">
+			<label for="status" class="col-lg-2 control-label">Thể loại</label>
+			<div class="col-lg-4">
+				<select name="type_id" class="form-control">
+					<option value="1" {{ $category->type_id==1 ? 'selected="selected"' : '' }}>Đồ gỗ nội thất</option>
+					<option value="2" {{ $category->type_id==2 ? 'selected="selected"' : '' }}>Vật liệu xây dựng</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<label class="col-lg-2 control-label" for="showon_menu">Thứ tự Menu</label>
-			<div class="col-lg-1">
+			<div class="col-lg-2">
 				<input class="form-control" type="text" name="showon_menu" id="showon_menu" value="{{ $category->showon_menu }}" />
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label class="col-lg-2 control-label" for="showon_homepage">Thứ tự Homepage</label>
-			<div class="col-lg-1">
+			<div class="col-lg-2">
 				<input class="form-control" type="text" name="showon_homepage" id="showon_homepage" value="{{ $category->showon_homepage }}" />
 			</div>
 		</div>

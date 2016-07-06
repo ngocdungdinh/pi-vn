@@ -33,17 +33,26 @@ Tạo chuyên mục mới ::
 				</select>
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="status" class="col-lg-2 control-label">Thể loại</label>
+			<div class="col-lg-4">
+				<select name="type_id" class="form-control">
+					<option value="1">Đồ gỗ nội thất</option>
+					<option value="2">Vật liệu xây dựng</option>
+				</select>
+			</div>
+		</div>
 		<hr />
 		<div class="form-group">
 			<label class="col-lg-2 control-label" for="showon_menu">Thứ tự Menu</label>
-			<div class="col-lg-1">
+			<div class="col-lg-2">
 				<input class="form-control" type="text" name="showon_menu" id="showon_menu" value="{{ Input::old('showon_menu') }}" />
 			</div>
 		</div>
 
 		<div class="form-group">
 			<label class="col-lg-2 control-label" for="showon_homepage">Thứ tự Homepage</label>
-			<div class="col-lg-1">
+			<div class="col-lg-2">
 				<input class="form-control" type="text" name="showon_homepage" id="showon_homepage" value="{{ Input::old('showon_homepage') }}" />
 			</div>
 		</div>

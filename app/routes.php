@@ -76,6 +76,28 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('{tagId}/delete', array('as' => 'delete/tag', 'uses' => 'Controllers\Admin\TagsController@getDelete'));
 	});
 
+	# Intro Management
+	Route::group(array('prefix' => 'intro'), function()
+	{
+		Route::get('/', array('as' => 'intro', 'uses' => 'Controllers\Admin\IntroController@getIndex'));
+		Route::get('create', array('as' => 'create/intro', 'uses' => 'Controllers\Admin\IntroController@getCreate'));
+		Route::post('create', 'Controllers\Admin\IntroController@postCreate');
+		Route::get('{introId}/edit', array('as' => 'update/intro', 'uses' => 'Controllers\Admin\IntroController@getEdit'));
+		Route::post('{introId}/edit', 'Controllers\Admin\IntroController@postEdit');
+		Route::get('{introId}/delete', array('as' => 'delete/intro', 'uses' => 'Controllers\Admin\IntroController@getDelete'));
+	});
+
+	# Intro Management
+	Route::group(array('prefix' => 'service'), function()
+	{
+		Route::get('/', array('as' => 'intro', 'uses' => 'Controllers\Admin\ServiceController@getIndex'));
+		Route::get('create', array('as' => 'create/service', 'uses' => 'Controllers\Admin\ServiceController@getCreate'));
+		Route::post('create', 'Controllers\Admin\ServiceController@postCreate');
+		Route::get('{serviceId}/edit', array('as' => 'update/service', 'uses' => 'Controllers\Admin\ServiceController@getEdit'));
+		Route::post('{serviceId}/edit', 'Controllers\Admin\ServiceController@postEdit');
+		Route::get('{serviceId}/delete', array('as' => 'delete/service', 'uses' => 'Controllers\Admin\ServiceController@getDelete'));
+	});
+
 	# Pages Management
 	Route::group(array('prefix' => 'pages'), function()
 	{

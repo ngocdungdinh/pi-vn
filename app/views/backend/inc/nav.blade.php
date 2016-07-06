@@ -32,7 +32,7 @@
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseHb">
-                    <span class="fa fa-shopping-cart"></span> Đồ nội thất
+                    <span class="fa fa-shopping-cart"></span> Sản phẩm
                 </a>
             </h4>
         </div>
@@ -45,23 +45,43 @@
             </div>
         </div>
     </div>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseHb1">
-                    <span class="fa fa-shopping-cart"></span> Vật liệu xây dựng
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                    <span class="glyphicon glyphicon-book"></span> Trang giới thiệu
                 </a>
             </h4>
         </div>
-        <div id="collapseHb1" class="panel-collapse  {{ (Request::is('admin/cart*') ? ' show' : 'collapse') }}">
+        <div id="collapseSix" class="panel-collapse {{ (Request::is('admin/intro*') ? ' show' : 'collapse') }}">
             <div class="panel-body">
-                <a href="{{ URL::to('admin/cart/products/create') }}" class="{{ (Request::is('admin/cart/products/create') ? ' active"' : '') }}"><i class="icon-chevron-right"></i> Thêm sản phẩm</a></a>
-                <a href="{{ URL::to('admin/cart') }}" class="{{ (Request::is('admin/cart') ? ' active"' : '') }}"><i class="icon-chevron-right"></i> Sản phẩm</a></a>
-                <a href="{{ URL::to('admin/cart/categories') }}" class="{{ (Request::is('admin/cart/categories*') ? ' active' : '') }}"><i class="icon-chevron-right"></i> Chuyên mục</a>
-                <a href="{{ URL::to('admin/cart/attributes') }}" class="{{ (Request::is('admin/cart/attributes*') ? ' active' : '') }}"><i class="icon-chevron-right"></i> Thuộc tính</a>
+                @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.create']) )
+                    <a href="{{ route('create/intro') }}" class="{{ (Request::is('admin/intro/create') ? ' active' : '') }}"><i class="icon-chevron-right"></i> Tạo mới</a>
+                @endif
+                <a href="{{ URL::to('admin/intro') }}" class="{{ (Request::is('admin/intro') ? ' active"' : '') }}"><i class="icon-chevron-right"></i> Danh sách trang</a></a>
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                    <span class="glyphicon glyphicon-book"></span> Trang dịch vụ
+                </a>
+            </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse {{ (Request::is('admin/service*') ? ' show' : 'collapse') }}">
+            <div class="panel-body">
+                @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.create']) )
+                    <a href="{{ route('create/service') }}" class="{{ (Request::is('admin/service/create') ? ' active' : '') }}"><i class="icon-chevron-right"></i> Tạo mới</a>
+                @endif
+                <a href="{{ URL::to('admin/service') }}" class="{{ (Request::is('admin/service') ? ' active"' : '') }}"><i class="icon-chevron-right"></i> Danh sách trang</a></a>
+            </div>
+        </div>
+    </div>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
@@ -105,10 +125,6 @@
             </div>
             <div id="collapseFive" class="panel-collaps {{ (Request::is('admin/menus*') || Request::is('admin/widgets*') || Request::is('admin/settings*') ? ' show' : 'collapse') }}">
                 <div class="panel-body">
-                    <a href="{{ URL::to('admin/menus') }}" class="{{ (Request::is('admin/menus*') ? ' active' : '') }}"><i class="icon-user"></i> Menu</a>
-                    @if(Config::get('app.module.widget'))
-                        <a href="{{ URL::to('admin/widgets') }}" class="{{ (Request::is('admin/widgets*') ? ' active' : '') }}"><i class="icon-user"></i> Widgets</a>
-                    @endif
                     <a href="{{ URL::to('admin/settings') }}" class="{{ (Request::is('admin/settings*') ? ' active' : '') }}"><i class="icon-user"></i> Thông tin chung</a>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+@if($product)
 <div class="shop-product normal show-popover" data-toggle="popover" data-placement="top">
   <a href="{{ route('shop-product', $product->slug) }}"><img src="{{ asset($product->mpath . '/200x200_crop/'. $product->mname) }}" width="97%"></a>
   <div class="product-item-info">
@@ -5,6 +6,7 @@
 	  <!-- <p class="text-muted">
 		Nunc in neque nec arcu vulputate ullamcorper.
 	  </p> -->
+	  @if($product->price != '')
 	  <p class="price">
 	  	@if($product->discount_price)
 			<span class="new">{{ number_format($product->discount_price, 0) }} {{ Config::get('settings.currency') }}</span>
@@ -14,8 +16,10 @@
 		@endif
 	  <a href="{{ route('shop-product', $product->slug) }}"><h5 class="shop-item-link" style="height: 32px; overflow: hidden;">{{ $product->name }}</h5></a>
 	  </p>
+	  @endif
   </div>
   <div class="hover-content">
   	<img src="{{ asset($product->mpath . '/550x500/'. $product->mname) }}" width="100%">
   </div>
 </div>
+@endif

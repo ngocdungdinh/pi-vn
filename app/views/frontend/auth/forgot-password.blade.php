@@ -1,4 +1,4 @@
-@extends('frontend/layouts/default')
+@extends('frontend/layouts/auth')
 
 {{-- Page title --}}
 @section('title')

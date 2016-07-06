@@ -96,6 +96,30 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Chuyên mục</div>
+					<div class="panel-body">
+						<div id="category-list">
+							@foreach($categories as $category)
+								@if($category->parent_id == 0)
+									<div class="checkbox">
+										<label class="scat category-id-{{ $category->id }}" id="category-id-{{ $category->id }}">
+											<input name="categories[]" type="checkbox" value="{{ $category->id}}"> {{ $category->name}}
+										</label>
+									</div>
+									@foreach ($category->subscategories as $subcate)
+										<div class="checkbox">
+											<label class="scat category-id-{{ $subcate->id }}" id="category-id-{{ $subcate->id }}">
+												<input name="categories[]" type="checkbox" value="{{ $subcate->id}}"> - {{ $subcate->name}}
+											</label>
+										</div>
+									@endforeach
+								@endif
+							@endforeach
+						</div>
+					</div>
+				</div>
 				<div class="panel panel-default">
 					<div class="panel-heading">Thông tin sản phẩm</div>
 					<div class="panel-body">

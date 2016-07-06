@@ -526,9 +526,10 @@ class CartController extends AdminController {
 	{
 		// Grab all the categories
 		$categories = CartCategory::where('parent_id', '=', 0)->where('type_id', '=', 1)->orderBy('showon_menu', 'ASC')->get();
+		$categories2 = CartCategory::where('parent_id', '=', 0)->where('type_id', '=', 2)->orderBy('showon_menu', 'ASC')->get();
 
 		// Show the page
-		return View::make('backend/cart/category_index', compact('categories'));
+		return View::make('backend/cart/category_index', compact('categories', 'categories2'));
 	}
 
 	/**
@@ -579,7 +580,7 @@ class CartController extends AdminController {
 		$category->name            	= Input::get('name');
 		$category->slug             = e(Str::slug(Input::get('name')));
 		$category->parent_id        = e(Input::get('parent_id'));
-		$category->type_id        = 1;
+		$category->type_id        = e(Input::get('type_id'));
 		$category->showon_menu      = e(Input::get('showon_menu'));
 		$category->showon_homepage  = e(Input::get('showon_homepage'));
 		$category->status           = e(Input::get('status'));

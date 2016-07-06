@@ -975,7 +975,7 @@ body {
 /* Reset the container */
 .container {
   max-width: none !important;
-  width: 980px !important;
+  width: 1200px !important;
 }
 /* Demonstrate the grids */
 .col-xs-4 {
