@@ -75,21 +75,13 @@
 		<div id="popular-posts-3" class="widget-2 widget popular-posts">
 			<h3>Popular Posts</h3>
 			<div class="recent-post group">
+				@foreach($pages as $key => $page)
 				<div class="hentry-post group">
-					<div class="thumb-img"><a href="article.html"><img width="55" height="55" src="{{ asset('assets/images/blog/blog2-55x55.jpg') }}" class="attachment-thumb_recentposts wp-post-image" alt="blog2" title="blog2" /></a></div>
-					<a href="article.html" title="Looking for a nice theme for your shop?" class="title">Looking for a nice theme for your shop?</a>
+					<div class="thumb-img"><a href="{{ URL::to($page_slug.'/'.$page->slug) }}"><img width="55" height="55" src="{{ asset($page->mpath . '/100x100_crop/' . $media->mname) }}" class="attachment-thumb_recentposts wp-post-image" alt="blog2" title="blog2" /></a></div>
+					<a href="{{ URL::to($page_slug.'/'.$page->slug) }}" title="Looking for a nice theme for your shop?" class="title">{{$page->title}}</a>
 					<p class="post-date">July 26, 2011</p>
 				</div>
-				<div class="hentry-post group">
-					<div class="thumb-img"><a href="article.html"><img width="55" height="55" src="{{ asset('assets/images/blog/blog3-55x55.jpg') }}" class="attachment-thumb_recentposts wp-post-image" alt="blog3" title="blog3" /></a></div>
-					<a href="article.html" title="-50% on all vintage glasses, enjoy it" class="title">-50% on all vintage glasses, enjoy it</a>
-					<p class="post-date">September 4, 2011</p>
-				</div>
-				<div class="hentry-post group">
-					<div class="thumb-img"><a href="article.html"><img width="55" height="55" src="{{ asset('assets/images/blog/blog1-55x55.jpg') }}" class="attachment-thumb_recentposts wp-post-image" alt="blog1" title="blog1" /></a></div>
-					<a href="#" title="Sommerce &ndash; a beautiful ecommerce solution" class="title">Sommerce &#8211; a beautiful ecommerce solution</a>
-					<p class="post-date">August 12, 2011</p>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>

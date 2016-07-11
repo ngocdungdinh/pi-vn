@@ -26,14 +26,28 @@ class PagesController extends BaseController {
 		$media = null;
 		switch ($page->post_type) {
 			case 'intro':
-				$this->data['pages'] = $pages = Post::where('post_type', 'intro')->get();
+				//$this->data['pages'] = $pages = Post::where('post_type', 'intro')->get();
+				$post_type = 'intro';
+				$this->data['page_slug'] = 'gioi-thieu';
 				break;
 			case 'service':
-				$this->data['pages'] = $pages = Post::where('post_type', 'service')->get();
+				//$this->data['pages'] = $pages = Post::where('post_type', 'service')->get();
+				$post_type = 'service';
+				$this->data['page_slug'] = 'dich-vu';
 				break;
 			default:
-				$this->data['pages'] = $pages = Post::where('post_type', 'page')->get();
+				//$this->data['pages'] = $pages = Post::where('post_type', 'page')->get();
+				$post_type = 'page';
+				$this->data['page_slug'] = 'page';
 		}
+
+		// Get all the news posts
+		$this->data['pages'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+			->leftJoin('medias', 'medias.id', '=', 'posts.media_id')
+			->where('status', 'published')
+			->where('post_type', $post_type)
+			->orderBy('publish_date', 'ASC')->get();
+
 
 		$media = null;
 		if($page->media_id) {

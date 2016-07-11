@@ -14,7 +14,6 @@ Sửa tin ::
 	<!-- Tabs -->
 	<ul class="nav nav-tabs" style="margin: 15px 0">
 		<li class="active"><a href="#tab-general" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Thông tin chung</a></li>
-		<li><a href="#tab-royalties" data-toggle="tab"><span class="glyphicon glyphicon-usd"></span> Nhuận bút</a></li>
 		<li><a href="#tab-meta-data" data-toggle="tab"><span class="glyphicon glyphicon-info-sign"></span> Thẻ Meta</a></li>
 		<li class="pull-right">
 			<div align="center">
@@ -132,70 +131,7 @@ Sửa tin ::
 							<input class="form-control" type="text" name="meta-keywords" id="meta-keywords" value="{{ Input::old('meta-keywords', $post->meta_keywords) }}" />
 						</div>
 					</div>
-					<!-- Meta Data tab -->
-					<div class="tab-pane" id="tab-royalties">
-						@if ( Permission::has_access('royalty', 'full') || Permission::has_access('royalty', 'view') || Permission::has_access('royalty', 'full', $post->user_id))
-						<div id="royaltiesResult">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th width="120">Người nhận</th>
-										<th width="60">Nhuận bút</th>
-										<th width="60">Thuế</th>
-										<th width="70">Được nhận</th>
-										<th width="150">Ghi chú</th>
-										<th width="60">Đã nhận?</th>
-										<th width="60"></th>
-									</tr>
-								</thead>
-								<tbody>
-									@if(isset($royalties))
-									@foreach ($royalties as $royalty)
-										<tr>
-											<td>
-												{{ $royalty->author->fullName() }}
-											</td>
-											<td>
-												{{ $royalty->royalty }}
-											</td>
-											<td>
-												{{ $royalty->tax }}
-											</td>
-											<td>
-												{{ $royalty->total }}
-											</td>
-											<td>
-												{{ $royalty->description }}
-											</td>
-											<td>
-												{{ $royalty->received ? '<span class="label label-success">Đúng</span>' : '<span class="label label-success">Sai</span>' }}
-											</td>
-											<td>
-												@if ( Permission::has_access('royalty', 'full') || Permission::has_access('royalty', 'set'))
-													<a data-toggle="modal" href="{{ URL::to('admin/royalties/form?royal_id='.$royalty->id) }}" data-target="#modal_royaltyform" class="show-modal label label-default">Sửa</a>
-													<a onclick="DeleteRoyalties('{{ $royalty->id }}');" href="javascript:void(0)" class="label label-danger">Xóa</a>
-												@endif
-											</td>
-										</tr>
-									@endforeach
-										<tr class="success">
-											<td colspan="2"></td>
-											<td>Tổng</td>
-											<td>{{ $royalyTotal }}</td>
-											<td colspan="3"></td>
-										</tr>									
-									@endif
-								</tbody>
-							</table>
-						</div>
-						@else
-							<div>Bạn không thể xem nội dung này.</div>
-						@endif
-						<hr />
-						@if ( Permission::has_access('royalty', 'full') || Permission::has_access('royalty', 'set'))
-							<a data-toggle="modal" href="{{ URL::to('admin/royalties/form?writer_id='.$post->user_id.'&item_id='.$post->id) }}" data-target="#modal_royaltyform" class="show-modal btn btn-info btn-xs"><span class="glyphicon glyphicon-plus"></span> Thêm nhuận bút</a>
-						@endif
-					</div>
+
 				</div>
 			</div>
 			<div class="col-md-3 colright">
