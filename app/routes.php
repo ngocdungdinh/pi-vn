@@ -399,6 +399,10 @@ Route::get('san-pham/{slug}', array('as' => 'shop-category', 'uses' => 'CartCont
 
 Route::get('page/{pageSlug}', array('as' => 'view-page', 'uses' => 'PagesController@getView'))
 	->where(array( 'pageSlug' => '[A-Za-z0-9\-]+'));
+Route::get('gioi-thieu/{pageSlug}', array('as' => 'view-intro', 'uses' => 'PagesController@getView'))
+	->where(array( 'pageSlug' => '[A-Za-z0-9\-]+'));
+Route::get('dich-vu/{pageSlug}', array('as' => 'view-service', 'uses' => 'PagesController@getView'))
+	->where(array( 'pageSlug' => '[A-Za-z0-9\-]+'));
 
 Route::get('tags/{tagSlug}', array('as' => 'view-tag', 'uses' => 'NewsController@getTag'))
 	->where(array( 'tagSlug' => '[A-Za-z0-9\-]+'));

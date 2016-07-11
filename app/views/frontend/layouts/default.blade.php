@@ -74,9 +74,13 @@
 		#newsletter-form .newsletter-section form ul li input.submit-field { background-color:#b4a58a; }
 		#newsletter-form .newsletter-section form ul li input.submit-field:hover { background-color:#b69a68; }
 		#footer .footer-sidebar, #copyright .inner { border-color:#D1D2D2; }
-		#slider ul li .slider-caption h2 a, #slider ul li .slider-caption h2 a:hover {color:#fff;}        #content { width:750px; }
+		#slider ul li .slider-caption h2 a, #slider ul li .slider-caption h2 a:hover {color:#fff;}
+		#content { width:750px; }
+		#content.blog { width:640px; }
 		#sidebar { width:170px; }
 		#sidebar.shop { width:170px; }
+		#sidebar.page { width:280px; }
+		#sidebar.blog { width:280px; }
 		.products li { width:164px !important; }
 		.products li a strong { width:120px !important; }
 		.products li a strong.inside-thumb { bottom:0px !important; }

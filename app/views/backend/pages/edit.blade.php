@@ -80,7 +80,7 @@ Sửa trang ::
 					  <div class="form-group">
 					    <p class="help-block" id="cover-image">
 					    	@if($media)
-					    		<img src="{{ asset($media->mpath . '/180x100_crop/' . $media->mname) }}" width="175" />
+					    		<img src="{{ asset($media->mpath . '/200x200_crop/' . $media->mname) }}" width="175" />
 					    		<a class="label label-default" href="javascript:void(0)" onclick="removeNewsCover()" >Bỏ ảnh</a>
 					    	@else
 					    		Chưa có ảnh đại diện
@@ -90,31 +90,6 @@ Sửa trang ::
 					  </div>
 					</div>
 				</div>
-				@if(Config::get('app.module.widget'))
-				<div class="panel panel-default">
-					<div class="panel-heading">Widgets
-					<a data-toggle="modal" data-target="#modal_widgets" class="btn btn-default btn-xs show-modal pull-right" href="{{ URL::to('admin/widgets/ajaxlist?item_id='.$post->id.'&type=post') }}"><i class="fa fa-puzzle-piece"></i> Thêm </a>
-					</div>
-					<div class="panel-body">
-						<div id="widgetList" style="padding-bottom: 6px">
-							@if($widgets->count())
-							<ol class="itemsort">
-								@foreach($widgets as $widget)
-									<li class="link-item big" data-wrid="{{$widget->wrid}}" data-position="{{$widget->position}}">
-										<p class="btn btn-default btn-block" align="left">
-										<span class="handle-item" style="cursor: move">{{ $widget->name }} </span>
-										<a href="{{ URL::to('admin/widgets/updatewidgetref?name='.$widget->form.'&id='.$widget->wrid) }}" data-toggle="modal" data-target="#modal_widgets" class="btn btn-xs show-modal pull-right"><i class="glyphicon glyphicon-edit"></i></a>
-										<a href="javascript:void(0)" onclick="removeWidget('{{ $widget->wrid }}', this)" class="btn btn-xs pull-right"><i class="glyphicon glyphicon-remove"></i></a></p>
-									</li>
-								@endforeach
-							</ol>
-							@else
-							<p>- no widget -</p>
-							@endif
-						</div>
-					</div>
-				</div>
-				@endif
 				@if ( Sentry::getUser()->hasAnyAccess(['pages','pages.delete']) )
 					<a onclick="confirmDelete(this); return false;" href="{{ route('delete/page', $post->id) }}" class="btn btn-danger btn-xs">@lang('button.delete')</a>
 				@endif

@@ -26,35 +26,73 @@
 
 {{-- Page content --}}
 @section('content')
-<div class="row">
-	<div class="col-md-9">
-		<h3 class="headline first-child text-color">
-			<span class="border-color">{{ $page->title }}</span>
-		</h3>
-		<p><strong>{{ $page->excerpt }}</strong></p>
-		<p>{{ $page->content }}</p>
-		<div>
-			@if($page->widgets()->count())
-				@foreach($page->widgets as $widget)
-					@include('widgets/'.$widget->form.'/view')
-				@endforeach
-			@endif
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="categories-box hidden-xs">
-			<div style="margin-top: 12px">
-				<div class="ctitle">
-					<span>SAMMI's SHOP</span>
-					<span class="cshadown"></span>
+		<!-- START PRIMARY SECTION -->
+<div id="primary" class="inner group" />
+<div class="layout-sidebar-right group">
+	<!-- START CONTENT -->
+	<div id="content" role="main" class="blog group">
+		<div class="clear"></div>
+		<div class="posts group">
+			<div class="posts_space"></div>
+			<div id="post-105" class="post-105 post type-post status-publish format-standard hentry category-glasses category-uncategorized category-vintage hentry-post group blog-big">
+				<div class="post_header group">
+					<img width="640" height="295" src="{{ asset($media->mpath . '/640x295_crop/' . $media->mname) }}" class="attachment-blog_big wp-post-image" alt="blog3" title="blog3" />
+					<div class="post_title">
+						<h2>{{ $page->title }}</h2>
+					</div>
+				</div>
+				<div class="post_content group">
+					<div class="post_meta">
+						<div class="post_date">
+							<span class="day">04</span>
+							<span class="month">Sep</span>
+							<span class="year">2011</span>
+						</div>
+						<div class="post_twitter"><a href="#">Tweet this</a></div>
+						<div class="post_author">by <a href="#" title="" rel="author">nando</a></div>
+					</div>
+					<p>{{ $page->excerpt }}</p>
+					<p>{{ $page->content }}</p>
+				</div>
+				<div class="post_ group">
 				</div>
 			</div>
-			<ul class="nav nav-pills nav-stacked catelist">
-				@foreach($pages as $p)
-			        <li><a href="{{ URL::to('page/'.$p->slug) }}" {{ $page->slug ==  $p->slug ? 'class="active"' : ''}}>{{ $p->title }}</a></li>
-				@endforeach
-			</ul>
 		</div>
 	</div>
+	<!-- END CONTENT -->
+	<!-- START SIDEBAR -->
+	<div id="sidebar" class="blog group">
+		<div id="search-3" class="widget-1 widget-first widget widget_search">
+			<h3>Search</h3>
+			<form role="search" method="get" id="searchform" action="home.html" class="group">
+				<div><label class="screen-reader-text" for="s">Search</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+					<input type="hidden" name="post_type" value="post" />
+				</div>
+			</form>
+		</div>
+		<div id="popular-posts-3" class="widget-2 widget popular-posts">
+			<h3>Popular Posts</h3>
+			<div class="recent-post group">
+				<div class="hentry-post group">
+					<div class="thumb-img"><a href="article.html"><img width="55" height="55" src="{{ asset('assets/images/blog/blog2-55x55.jpg') }}" class="attachment-thumb_recentposts wp-post-image" alt="blog2" title="blog2" /></a></div>
+					<a href="article.html" title="Looking for a nice theme for your shop?" class="title">Looking for a nice theme for your shop?</a>
+					<p class="post-date">July 26, 2011</p>
+				</div>
+				<div class="hentry-post group">
+					<div class="thumb-img"><a href="article.html"><img width="55" height="55" src="{{ asset('assets/images/blog/blog3-55x55.jpg') }}" class="attachment-thumb_recentposts wp-post-image" alt="blog3" title="blog3" /></a></div>
+					<a href="article.html" title="-50% on all vintage glasses, enjoy it" class="title">-50% on all vintage glasses, enjoy it</a>
+					<p class="post-date">September 4, 2011</p>
+				</div>
+				<div class="hentry-post group">
+					<div class="thumb-img"><a href="article.html"><img width="55" height="55" src="{{ asset('assets/images/blog/blog1-55x55.jpg') }}" class="attachment-thumb_recentposts wp-post-image" alt="blog1" title="blog1" /></a></div>
+					<a href="#" title="Sommerce &ndash; a beautiful ecommerce solution" class="title">Sommerce &#8211; a beautiful ecommerce solution</a>
+					<p class="post-date">August 12, 2011</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
 </div>
 @stop

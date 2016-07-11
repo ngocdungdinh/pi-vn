@@ -22,7 +22,24 @@ class PagesController extends BaseController {
 	{
 		// Get this news post data
 		$this->data['page'] = $page = Post::where('slug', $slug)->first();
-		$this->data['pages'] = $pages = Post::where('post_type', 'page')->get();
+
+		$media = null;
+		switch ($page->post_type) {
+			case 'intro':
+				$this->data['pages'] = $pages = Post::where('post_type', 'intro')->get();
+				break;
+			case 'service':
+				$this->data['pages'] = $pages = Post::where('post_type', 'service')->get();
+				break;
+			default:
+				$this->data['pages'] = $pages = Post::where('post_type', 'page')->get();
+		}
+
+		$media = null;
+		if($page->media_id) {
+			$this->data['media'] = $media = Media::find($page->media_id);
+		}
+
 		// Check if the news post exists
 		if (is_null($page))
 		{
