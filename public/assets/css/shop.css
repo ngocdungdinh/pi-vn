@@ -438,7 +438,7 @@ span.onsale {
     margin-bottom:-1px !important;
 }
 .products li.shadow a .thumb-shadow {
-  background:url('images/shadow-product.png') center bottom no-repeat;
+  /*background:url('images/shadow-product.png') center bottom no-repeat;*/
   height:22px;
   width:100%;
   display:block;
