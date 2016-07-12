@@ -36,27 +36,24 @@
 			<div class="posts_space"></div>
 			<div id="post-105" class="post-105 post type-post status-publish format-standard hentry category-glasses category-uncategorized category-vintage hentry-post group blog-big">
 				<div class="post_header group">
-					<img width="640" height="295" src="{{ asset('assets/images/blog/blog3-640x295.jpg') }}" class="attachment-blog_big wp-post-image" alt="blog3" title="blog3" />
+					<img width="640" height="295" src="{{ asset($post->mpath . '/640x295_crop/' . $post->mname) }}" class="attachment-blog_big wp-post-image" alt="blog3" title="blog3" />
 					<div class="post_title">
-						<h2>-50% on all vintage glasses, enjoy it</h2>
+						<h2>{{ $post->title }}</h2>
 					</div>
 				</div>
 				<div class="post_content group">
 					<div class="post_meta">
 						<div class="post_date">
-							<span class="day">04</span>
-							<span class="month">Sep</span>
-							<span class="year">2011</span>
+							<?php $post_date = explode('/', date("d/M/Y",strtotime($post->publish_date))) ?>
+							<span class="day">{{$post_date[0]}}</span>
+							<span class="month">{{$post_date[1]}}</span>
+							<span class="year">{{$post_date[2]}}</span>
 						</div>
-						<div class="post_comments"><a href="#" title="Comment on -50% on all vintage glasses, enjoy it">No comments</a></div>
 						<div class="post_twitter"><a href="#">Tweet this</a></div>
-						<div class="post_author">by <a href="#" title="Posts by nando" rel="author">nando</a></div>
+						<div class="post_author">by <a href="#" rel="author">{{ $post->author->fullName() }}</a></div>
 					</div>
-					<p>Phasellus gravida augue sit amet leo dapibus a congue velit semper. Aliquam erat volutpat. Vivamus sed nisl erat. Aliquam aliquet mi a massa facilisis sit amet pharetra turpis porta. Fusce vulputate porttitor erat quis consequat. <strong>Cras auctor sagittis</strong> risus. Maecenas vel orci risus, et rutrum erat. Donec varius neque tristique felis aliquam sodales. Donec viverra, turpis quis blandit eleifend, neque nisi bibendum ligula, ut ultrices nisi orci ac lorem.</p>
-					<p><span id="more-105"></span><br />
-						Fusce hendrerit euismod nisi ut vulputate. Integer ac magna vel mauris ullamcorper semper. Morbi et ante quis mi aliquam facilisis.
-					</p>
-					<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam ornare, libero vitae blandit volutpat, turpis tellus convallis lacus, tristique pharetra metus mi nec nisi. Pellentesque fermentum porta dolor eget consectetur. Aenean dictum felis at sem <strong>vehicula dapibus</strong>. Etiam semper magna sit amet augue blandit vel cursus erat egestas. Aenean venenatis tincidunt diam non fermentum. Phasellus volutpat massa vitae justo varius porta. Morbi congue ullamcorper risus, eget euismod ligula feugiat non. Sed ac egestas ipsum. Nunc in ante est, vitae congue dui. Aliquam nulla nunc, consequat interdum egestas et, placerat ut elit. Donec molestie semper lorem id hendrerit. Nunc luctus tristique urna at mattis.</p>
+					<p>{{ $post->excerpt }}</p>
+					<p>{{ $post->content }}</p>
 				</div>
 				<div class="post_ group">
 				</div>

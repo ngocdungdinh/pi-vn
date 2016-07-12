@@ -44,12 +44,13 @@
 				<div class="post_content group">
 					<div class="post_meta">
 						<div class="post_date">
-							<span class="day">04</span>
-							<span class="month">Sep</span>
-							<span class="year">2011</span>
+							<?php $post_date = explode('/', date("d/M/Y",strtotime($page->publish_date))) ?>
+							<span class="day">{{$post_date[0]}}</span>
+							<span class="month">{{$post_date[1]}}</span>
+							<span class="year">{{$post_date[2]}}</span>
 						</div>
 						<div class="post_twitter"><a href="#">Tweet this</a></div>
-						<div class="post_author">by <a href="#" title="" rel="author">nando</a></div>
+						<div class="post_author">by <a href="#" title="" rel="author">{{ $page->author->fullName() }}</a></div>
 					</div>
 					<p>{{ $page->excerpt }}</p>
 					<p>{{ $page->content }}</p>
