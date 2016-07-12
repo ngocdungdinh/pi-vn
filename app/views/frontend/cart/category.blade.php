@@ -12,8 +12,19 @@
 	<div class="layout-sidebar-left group">
 		<div id="container">
 			<div id="content" role="main">
-				<div id="breadcrumb"><a class="home" href="home.html">Home</a>  &rsaquo; <a href="shop.html">Shop</a></div>
-				<h1 class="page-title">All Products</h1>
+				<div id="breadcrumb">
+                    <a class="home" href="{{route('home')}}">Home</a>  &rsaquo;
+                    @if($category->type_id == 1)
+                        <a href="#">Vật liệu xây dựng</a>  &rsaquo;
+                    @else
+                        <a href="#">Đồ nội thất</a>  &rsaquo;
+                    @endif
+
+                    @if($category->parent_id != 0)
+                        <a href="{{ route('shop-category', $parent_category->slug) }}">{{ $parent_category->name }}</a>  &rsaquo;
+                    @endif
+                    <a href="{{ route('shop-category', $parent_category->slug) }}">{{ $category->name }}</a></div>
+				<h1 class="page-title">{{ $category->name }}</h1>
 				<h2></h2>
 				<ul class="products">
 					<li class="product border shadow first">

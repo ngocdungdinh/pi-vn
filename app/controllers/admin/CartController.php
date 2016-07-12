@@ -338,8 +338,8 @@ class CartController extends AdminController {
 	  			$product->insertTags($tagIds);
 			}
 
-			$attrIds = Input::get('attrs');
-			$product->attributes()->sync($attrIds);
+			//$attrIds = Input::get('attrs');
+			//$product->attributes()->sync($attrIds);
 
 			// Update reference categories
 			if(Input::get('categories'))
