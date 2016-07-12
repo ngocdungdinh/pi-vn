@@ -26,6 +26,7 @@
 	</title>
 
 	<!-- CSS -->
+	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/style.css') }}" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-width: 980px)" href="{{ asset('assets/css/lessthen980.css') }}" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="{{ asset('assets/css/lessthen600.css') }}" />
@@ -35,6 +36,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/tipsy.css') }}" type="text/css" media="all" />
 	<link rel='stylesheet' href='{{ asset('assets/css/jquery-rotating.css') }}' type='text/css' media='all' />
 	<link rel='stylesheet' href='{{ asset('assets/css/slider-cycle.css') }}' type='text/css' media='all' />
+
 
 	<!-- [favicon] begin -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}" />
