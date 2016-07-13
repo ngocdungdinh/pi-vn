@@ -219,13 +219,7 @@ Sửa tin ::
 							<label><input type="checkbox" name="is_featured" value="1" {{ $post->is_featured ? 'checked="checked"' : ''}}> Nổi bật</label>
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox" name="is_popular" value="1" {{ $post->is_popular ? 'checked="checked"' : ''}}> Tin nhanh</label>
-						</div>
-						<div class="checkbox">
 							<label><input type="checkbox" name="showon_homepage" value="1" {{ $post->showon_homepage ? 'checked="checked"' : ''}}> Hiện ngoài trang chủ</label>
-						</div>
-						<div class="checkbox">
-							<label><input type="checkbox" name="allow_comments" value="1" {{ $post->allow_comments ? 'checked="checked"' : ''}}> Cho phép bình luận</label>
 						</div>
 					</div>
 				</div>

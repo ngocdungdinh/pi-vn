@@ -94,31 +94,6 @@ Sửa sản phẩm ::
 							</div>
 						</div>
 						<div class="panel panel-info">
-							<div class="panel-heading"><span class="glyphicon glyphicon-list-alt"></span> Thuộc tính sản phẩm</div>
-							<div class="panel-body">
-								<table class="table table-hover table-bordered">
-								@foreach($attributes as $attr)
-									@if($attr->parent_id == 0)
-									  <tr class="active">
-									  	<td width="20%">
-											<div class=""><strong>{{ $attr->name }}</strong></div>
-										</td>
-									  	<td>
-									  		<select name="attrs[]" multiple="multiple" class="attrselector" class="form-control" placeholder="Chọn thuộc tính">
-									  			@foreach($attributes as $subattr)
-									  				@if($subattr->parent_id == $attr->id)
-									  					<option value="{{ $subattr->id }}" {{ in_array($subattr->id, $attrIds) ? 'selected="selected"' : '' }}>{{ $subattr->name }}</option>
-									  				@endif
-									  			@endforeach
-									  		</select>
-									  	</td>
-									  </tr>
-									@endif
-								@endforeach
-								</table>
-							</div>
-						</div>
-						<div class="panel panel-info">
 							<div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> Ảnh sản phẩm</div>
 							<div class="panel-body">
 								<div id="image-list" style="overflow: hidden">
@@ -255,9 +230,6 @@ Sửa sản phẩm ::
 						</div>
 						<div class="checkbox">
 							<label><input type="checkbox" name="showon_homepage" value="1" {{ $product->showon_homepage ? 'checked="checked"' : ''}}> Hiện ngoài trang chủ</label>
-						</div>
-						<div class="checkbox">
-							<label><input type="checkbox" name="allow_comments" value="1" {{ $product->allow_comments ? 'checked="checked"' : ''}}> Cho phép bình luận</label>
 						</div>
 					</div>
 				</div>

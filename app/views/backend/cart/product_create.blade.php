@@ -172,9 +172,6 @@
 						<div class="checkbox">
 							<label><input type="checkbox" name="showon_homepage" value="1" checked="checked"> Hiện ngoài trang chủ</label>
 						</div>
-						<div class="checkbox">
-							<label><input type="checkbox" name="allow_comments" value="1" checked="checked"> Cho phép bình luận</label>
-						</div>
 					</div>
 				</div>
 			</div>

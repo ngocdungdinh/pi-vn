@@ -167,13 +167,7 @@
 							<label><input type="checkbox" name="is_featured" value="1"> Nổi bật</label>
 						</div>
 						<div class="checkbox">
-							<label><input type="checkbox" name="is_popular" value="1"> Tin nhanh</label>
-						</div>
-						<div class="checkbox">
 							<label><input type="checkbox" name="showon_homepage" value="1"> Hiện ngoài trang chủ</label>
-						</div>
-						<div class="checkbox">
-							<label><input type="checkbox" name="allow_comments" value="1"> Cho phép bình luận</label>
 						</div>
 					</div>
 				</div>

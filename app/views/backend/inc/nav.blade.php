@@ -11,6 +11,15 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
+                <a href="{{ URL::to('admin/slider') }}" class="accordion-toggle">
+                    <span class="glyphicon glyphicon glyphicon-picture"></span> Home slider
+                </a>
+            </h4>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                     <span class="glyphicon glyphicon-pencil"></span> Bài viết
                 </a>

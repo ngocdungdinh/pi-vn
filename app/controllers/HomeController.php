@@ -38,6 +38,13 @@ class HomeController extends BaseController {
 			->where('showon_homepage', 1)
 			->orderBy('publish_date', 'DESC')->take(3)->get();
 
+		$this->data['home_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+			->leftJoin('medias', 'medias.id', '=', 'posts.media_id')
+			->where('status', 'published')
+			->where('post_type', 'post')
+			->where('showon_homepage', 1)
+			->orderBy('publish_date', 'DESC')->get(4);
+
 		$this->data['last_products'] = CartProduct::select('cart_products.*', 'medias.mpath', 'medias.mname')
 			->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
 			->where('status', 'published')

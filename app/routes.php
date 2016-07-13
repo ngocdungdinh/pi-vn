@@ -109,6 +109,14 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('{pageId}/delete', array('as' => 'delete/page', 'uses' => 'Controllers\Admin\PagesController@getDelete'));
 	});
 
+	# Pages Management
+	Route::group(array('prefix' => 'slider'), function()
+	{
+		Route::get('/', array('as' => 'slider', 'uses' => 'Controllers\Admin\SlidersController@getIndex'));
+		Route::post('addimage', 'Controllers\Admin\SlidersController@postAddImage');
+		Route::post('removeimage', 'Controllers\Admin\SlidersController@postRemoveImage');
+	});
+
 	# Comments Management
 	Route::group(array('prefix' => 'comments'), function()
 	{

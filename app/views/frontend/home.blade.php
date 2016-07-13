@@ -11,123 +11,21 @@ Trang chủ ::
 		<!-- START SLIDER -->
 <div id="slider" class="thumbnails group inner">
 	<div class="showcase group">
+		@foreach($sliders->slidermedias as $m)
 		<div class="showcase-slide">
 			<div class="showcase-content">
 				<!-- If the slide contains multiple elements you should wrap them in a div with the class
                    .showcase-content-wrapper. We usually wrap even if there is only one element,
                    because it looks better. -->
 				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-01.png') }}" width="960" height="401" alt="" />
+					<img src="{{ asset($m->mpath .'/958x421_crop/'. $m->mname ) }}" width="960" height="401" alt="" />
 				</div>
 			</div>
 			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
+				<img src="{{ asset($m->mpath .'/200x200_crop/'. $m->mname ) }}" />
 			</div>
 		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-02.png') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-03.png') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-04.png') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-05.png') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-06.png') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-07.jpg') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-08.jpg') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
-		<div class="showcase-slide">
-			<div class="showcase-content">
-				<!-- If the slide contains multiple elements you should wrap them in a div with the class
-                   .showcase-content-wrapper. We usually wrap even if there is only one element,
-                   because it looks better. -->
-				<div class="showcase-content-wrapper">
-					<img src="{{ asset('assets/images/slider/slide-04.png') }}" width="960" height="401" alt="" />
-				</div>
-			</div>
-			<div class="showcase-thumbnail">
-				<img src="{{ asset('assets/images/slider/thumb/no-thumbnail.jpg') }}" />
-			</div>
-		</div>
+		@endforeach
 	</div>
 </div>
 <!-- END SLIDER -->
@@ -153,26 +51,18 @@ Trang chủ ::
 		<h1>Các dự án đã & đang thực hiện</h1>
 	</div>
 	<div id="post-206" class="post-206 page type-page status-publish hentry group">
-		<div class="one-fourth">
-			<h3>Công trình tiêu biểu</h3>
-			<p><a href="images/common/00112.jpg"><img class="alignleft size-full wp-image-278" title="001" src="{{ asset('assets/images/common/00112.jpg') }}" alt="" width="220" height="81" /></a></p>
-			<p>Nunc felis urna, mattis non blandit vitae, porttitor ac enim. Nunc scelerisque sagittis sollicitudin nam gravida.</p>
+		@foreach($home_posts as $key => $hp)
+		<div class="one-fourth {{{($key+1)%4==0?'last':''}}}">
+			<p><a href="{{$hp->url()}}"><img class="alignleft size-full wp-image-278" title="001" src="{{ asset($hp->mpath .'/220x81_crop/'. $hp->mname ) }}" alt="" width="220" height="81" /></a></p>
+			<h3>{{$hp->title}}</h3>
+			<p>{{$hp->excerpt}}</p>
 		</div>
-		<div class="one-fourth">
-			<h3>Công trình tiêu biểu</h3>
-			<p><a href="images/common/0024.jpg"><img class="alignleft size-full wp-image-281" title="002" src="{{ asset('assets/images/common/0024.jpg') }}" alt="" width="220" height="81" /></a></p>
-			<p>Nunc felis urna, mattis non blandit vitae, porttitor ac enim. Nunc scelerisque sagittis sollicitudin nam gravida.</p>
-		</div>
-		<div class="one-fourth">
-			<h3>Công trình tiêu biểu</h3>
-			<p><a href="images/common/0036.jpg"><img class="alignleft size-full wp-image-283" title="003" src="{{ asset('assets/images/common/0036.jpg') }}" alt="" width="220" height="81" /></a></p>
-			<p>Nunc felis urna, mattis non blandit vitae, porttitor ac enim. Nunc scelerisque sagittis sollicitudin nam gravida.</p>
-		</div>
-		<div class="one-fourth last">
-			<h3>Công trình tiêu biểu</h3>
-			<p><img class="alignleft size-full wp-image-286" title="04" src="{{ asset('assets/images/common/04.jpg') }}" alt="" width="220" height="81" /></p>
-			<p>Nunc felis urna, mattis non blandit vitae, porttitor ac enim. Nunc scelerisque sagittis sollicitudin nam gravida.</p>
-		</div>
+		@endforeach
+		{{--<div class="one-fourth last">--}}
+			{{--<h3>Công trình tiêu biểu</h3>--}}
+			{{--<p><img class="alignleft size-full wp-image-286" title="04" src="{{ asset('assets/images/common/04.jpg') }}" alt="" width="220" height="81" /></p>--}}
+			{{--<p>Nunc felis urna, mattis non blandit vitae, porttitor ac enim. Nunc scelerisque sagittis sollicitudin nam gravida.</p>--}}
+		{{--</div>--}}
 		<div class="clear space"></div>
 
 		<div class="border-line"></div>
@@ -185,110 +75,11 @@ Trang chủ ::
 		<div id="content" role="main" class="group wrapper-content">
 			<div id="post-241" class="post-241 page type-page status-publish hentry group">
 				<ul class="products">
-					<li class="product border shadow first">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/ktichen21-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="ktichen2" title="ktichen2" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Wood Kitchen</strong>
-							</div>
-							<span class="price">&#36;367.00</span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
+					@foreach($last_products as $key => $product)
+					<li class="product border shadow {{{ (($key+1)%4==1) ? 'first' : '' }}} {{{ (($key+1)%4==0) ? 'last' : '' }}}">
+						@include('frontend/cart/inc/product-item')
 					</li>
-					<li class="product border shadow">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/kitchen-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="kitchen" title="kitchen" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Dark Kitchen</strong>
-							</div>
-							<span class="price">&#36;940.00</span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
-					<li class="product border shadow">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/wood5-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="wood" title="wood" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Wood Flor</strong>
-							</div>
-							<span class="price">&#36;650.00</span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
-					<li class="product border shadow last">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/originalparquet_001_big-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="originalparquet_001_big" title="originalparquet_001_big" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Gold mahibo</strong>
-							</div>
-							<span class="price"><del>&#36;1,000.00</del> <ins>&#36;450.00</ins></span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
-					<li class="product border shadow first last-row">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/Fotolia_19668952_Subscription_XL-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="Fotolia_19668952_Subscription_XL" title="Fotolia_19668952_Subscription_XL" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Nice pillows</strong>
-							</div>
-							<span class="price"><del>&#36;420.00</del> <ins>&#36;380.00</ins></span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
-					<li class="product border shadow last-row">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/warmroom-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="warmroom" title="warmroom" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Hot Room</strong>
-							</div>
-							<span class="price">&#36;730.00</span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
-					<li class="product border shadow last-row">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/wood-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="wood" title="wood" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">Wood design</strong>
-							</div>
-							<span class="price"><del>&#36;340.00</del> <ins>&#36;340.00</ins></span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
-					<li class="product border shadow last last-row">
-						<a href="product_single.html">
-							<div class="thumbnail">
-								<img width="150" height="150" src="{{ asset('assets/images/common/001b-150x150.jpg') }}" class="attachment-shop_small wp-post-image" alt="001b" title="001b" />
-								<div class="thumb-shadow"></div>
-								<strong class="below-thumb">PINK BATHROOM</strong>
-							</div>
-							<span class="price">&#36;450.00</span>
-						</a>
-						<div class="buttons">
-							<a href="product_single.html" class="details">CHI TIẾT</a>
-						</div>
-					</li>
+					@endforeach
 				</ul>
 				<div class="clear"></div>
 				<div class="clear"></div>

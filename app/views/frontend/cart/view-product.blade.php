@@ -48,10 +48,12 @@
 
 				<div class="summary">
 					<h1 class="product_title page-title">{{ $product->name }}</h1>
-					@if($product->discount_price)
-						<p class="price"><del>{{ number_format($product->price, 0) }}</del> <ins>{{ number_format($product->discount_price, 0) }} {{ Config::get('settings.currency') }}</ins></p>
-					@else
-						<p class="price"> <ins>{{ number_format($product->price, 0) }} {{ Config::get('settings.currency') }}</ins></p>
+					@if($product->price != '')
+						@if($product->discount_price)
+							<p class="price"><del>{{ number_format($product->price, 0) }}</del> <ins>{{ number_format($product->discount_price, 0) }} {{ Config::get('settings.currency') }}</ins></p>
+						@else
+							<p class="price"> <ins>{{ number_format($product->price, 0) }} {{ Config::get('settings.currency') }}</ins></p>
+						@endif
 					@endif
 					<p>
 						{{$product->excerpt}}
@@ -61,7 +63,7 @@
 				<div id="product-tabs">
 					<ul class="tabs">
 						{{--<li class="active"><a href="#related-products">Related Products</a></li>--}}
-						<li class="active"><a href="#tab-description">Description</a></li>
+						<li class="active"><a href="#tab-description">Chi tiết sản phẩm</a></li>
 					</ul>
 					<div class="containers">
 						{{--<div class="panel" id="related-products">--}}
@@ -124,7 +126,7 @@
 							{{--</div>--}}
 						{{--</div>--}}
 						<div class="panel" id="tab-description">
-							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#8217;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#8217;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+							<p>{{$product->content}}</p>
 						</div>
 						<div class="panel" id="tab-attributes">
 							<h2>Additional Information</h2>

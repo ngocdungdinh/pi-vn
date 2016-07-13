@@ -29,6 +29,10 @@ class BaseController extends Controller {
 		// CSRF Protection
 		$this->beforeFilter('csrf', array('on' => 'post'));
 
+		$this->data['sliders'] = Sliders::find(1);
+
+
+
 		$this->data['categories'] = Category::where('showon_menu', '>', 0)->orderBy('showon_menu', 'ASC')->get();
 
 		$this->data['prod_cate_type_1'] = CartCategory::where('type_id', 1)->orderBy('showon_menu', 'ASC')->get();

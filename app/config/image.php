@@ -31,7 +31,7 @@ return array(
         'thumb13'  => array(295, 295, true, 100),
         'thumb14' => array(530, 345, true, 100, true),
         'thumb15' => array(878, 443, true, 100, true),
-        'thumb16' => array(958, 421, false, 100, true),
+        'thumb16' => array(958, 421, true, 100),
         'thumb17' => array(640, 295, true, 100),
     ),
     'avatar_dimensions' => array(
