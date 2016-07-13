@@ -29,16 +29,19 @@ class PagesController extends BaseController {
 				//$this->data['pages'] = $pages = Post::where('post_type', 'intro')->get();
 				$post_type = 'intro';
 				$this->data['page_slug'] = 'gioi-thieu';
+				$this->data['page_group'] = 'Giới thiệu';
 				break;
 			case 'service':
 				//$this->data['pages'] = $pages = Post::where('post_type', 'service')->get();
 				$post_type = 'service';
 				$this->data['page_slug'] = 'dich-vu';
+				$this->data['page_group'] = 'Dịch vụ';
 				break;
 			default:
 				//$this->data['pages'] = $pages = Post::where('post_type', 'page')->get();
 				$post_type = 'page';
 				$this->data['page_slug'] = 'page';
+				$this->data['page_group'] = 'Thông tin';
 		}
 
 		// Get all the news posts
@@ -52,6 +55,8 @@ class PagesController extends BaseController {
 		$media = null;
 		if($page->media_id) {
 			$this->data['media'] = $media = Media::find($page->media_id);
+		} else {
+			$this->data['media'] = '';
 		}
 
 		// Check if the news post exists

@@ -363,7 +363,7 @@ Route::get('about-us', function()
 	return View::make('frontend/about-us');
 });
 
-Route::get('lien-he', array('as' => 'lien-he', 'uses' => 'ContactController@getIndex'));
+Route::get('lien-he', array('as' => 'lien-he', 'uses' => 'ContactUsController@getIndex'));
 Route::post('lien-he', 'ContactUsController@postIndex');
 
 Route::get('newsletters', array('as' => 'newsletters', 'uses' => 'NewslettersController@getNewsletter'));
@@ -394,6 +394,8 @@ Route::get('shop/p/{slug}', array('as' => 'shop-product', 'uses' => 'CartControl
 	->where(array( 'slug' => '[A-Za-z0-9\-]+'));
 
 Route::get('san-pham/{slug}', array('as' => 'shop-category', 'uses' => 'CartController@getCategory'))
+	->where(array( 'slug' => '[A-Za-z0-9\-]+'));
+Route::get('san-pham/p/{slug}', array('as' => 'shop-product', 'uses' => 'CartController@getProduct'))
 	->where(array( 'slug' => '[A-Za-z0-9\-]+'));
 
 

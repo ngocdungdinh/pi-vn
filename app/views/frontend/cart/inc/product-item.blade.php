@@ -1,25 +1,21 @@
 @if($product)
-<div class="shop-product normal show-popover" data-toggle="popover" data-placement="top">
-  <a href="{{ route('shop-product', $product->slug) }}"><img src="{{ asset($product->mpath . '/200x200_crop/'. $product->mname) }}" width="97%"></a>
-  <div class="product-item-info">
-	  <a href="javascript:void(0)" data-pro-id="{{ $product->id }}" data-qty="1" class="btn btn-xs btn-default pull-right add-to-basket"><i class="fa fa-shopping-cart"></i></a>
-	  <!-- <p class="text-muted">
-		Nunc in neque nec arcu vulputate ullamcorper.
-	  </p> -->
-	  @if($product->price != '')
-	  <p class="price">
-	  	@if($product->discount_price)
-			<span class="new">{{ number_format($product->discount_price, 0) }} {{ Config::get('settings.currency') }}</span>
-			<span class="old">{{ number_format($product->price, 0) }}</span>
-		@else
-			<span class="new">{{ number_format($product->price, 0) }} {{ Config::get('settings.currency') }}</span>
+	<a href="{{ route('shop-product', $product->slug) }}">
+		<div class="thumbnail">
+			<img width="150" height="150" src="{{ asset($product->mpath . '/200x200_crop/'. $product->mname) }}" class="attachment-shop_small wp-post-image" />
+			<div class="thumb-shadow"></div>
+			<strong class="below-thumb">{{ $product->name }}</strong>
+		</div>
+		@if($product->price != '')
+			@if($product->discount_price)
+				<span class="price">{{ number_format($product->discount_price, 0) }} {{ Config::get('settings.currency') }}</span>
+				<span class="price" style="text-decoration: line-through;">{{ number_format($product->price, 0) }}</span>
+			@else
+				<span class="price">{{ number_format($product->price, 0) }} {{ Config::get('settings.currency') }}</span>
+			@endif
+
 		@endif
-	  <a href="{{ route('shop-product', $product->slug) }}"><h5 class="shop-item-link" style="height: 32px; overflow: hidden;">{{ $product->name }}</h5></a>
-	  </p>
-	  @endif
-  </div>
-  <div class="hover-content">
-  	<img src="{{ asset($product->mpath . '/550x500/'. $product->mname) }}" width="100%">
-  </div>
-</div>
+	</a>
+	<div class="buttons">
+		<a href="{{ route('shop-product', $product->slug) }}" class="details">CHI TIẾT</a>
+	</div>
 @endif

@@ -166,7 +166,6 @@ class CategoriesController extends AdminController {
 		$category->parent_id        = e(Input::get('parent_id'));
 		$category->showon_menu      = e(Input::get('showon_menu'));
 		$category->showon_homepage  = e(Input::get('showon_homepage'));
-		$category->type_id           = e(Input::get('type_id'));
 		$category->status           = e(Input::get('status'));
 
 		// Was the news post updated?

@@ -147,15 +147,16 @@ body .last, body .widget-last { margin-right:0; border-right:0; }
 /****************************** ELEGANT *******************************************/
 #nav.elegant {height:45px;}
 #nav.elegant ul { list-style:none; margin:0 0 0 -15px; }
-#nav.elegant ul li { float:left; padding:15px; line-height:15px; position:relative; }
+#nav.elegant ul li { float:left; padding:13px; line-height:15px; position:relative; }
 #nav.elegant ul li a { color:#fff; font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:1.2em; }
+#nav.elegant ul li.parent a { color:#fff; font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:1.2em; text-transform: uppercase; }
 #nav.elegant ul li a:hover { color:#b9b8b8; }
 
 /* submenu */
 #nav.elegant ul.sub-menu, #nav.elegant ul.children { position:absolute; top:30px; left:15px; padding:10px 0; min-width:200px; margin-top:15px; background:#242424; background:rgba(36,36,36,0.92); box-shadow:3px 3px 3px rgba(0, 0, 0, 0.26); z-index:20; }
 #nav.elegant ul.sub-menu li, #nav.elegant ul.children li { padding:0; float:none; }      
 #nav.elegant ul.sub-menu li:hover, #nav.elegant ul.children li:hover { background-color:#444; }      
-#nav.elegant ul.sub-menu li a, #nav.elegant ul.children li a { display:block; padding:10px 15px; }
+#nav.elegant ul.sub-menu li a, #nav.elegant ul.children li a { display:block; padding:10px 15px; text-transform: none; }
 
 /* third level */
 #nav.elegant ul.sub-menu li ul, #nav.elegant ul.children li ul { top:-10px; margin:0; }
@@ -213,7 +214,7 @@ body .last, body .widget-last { margin-right:0; border-right:0; }
 #nav.creative ul li ul li .sf-sub-indicator { background-position:right top; }                                                         
 
 /* navigation indicator general */
-#nav ul li .sf-sub-indicator { display:inline-block; margin-left:10px; width:20px; background-image:url('images/bg/sub-indicator.png'); background-repeat:no-repeat; border-left:1px solid #717171; text-indent:-9999px; }
+#nav ul li .sf-sub-indicator { display:inline-block; margin-left:5px; width:20px; background-image:url('images/bg/sub-indicator.png'); background-repeat:no-repeat; border-left:1px solid #717171; text-indent:-9999px; }
 #nav ul li.megamenu ul li .sf-sub-indicator { background:none; border:0; }       
 #nav.creative ul li .sf-sub-indicator { margin-right:-15px }    
 #nav.elegant ul li .sf-sub-indicator { border-left-color:#fff; }
@@ -634,7 +635,7 @@ input#s { padding:5px; }
 #content .contact-form li.full { clear:both; }
 #content .contact-form li.full label { display: block }  
 #content .contact-form li.textarea-field { clear:both; width:auto; float:none; }
-#content .contact-form label span.label { font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 18px; line-height: 18px; }
+#content .contact-form label span.label { font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 18px; line-height: 18px; color: #333; }
 #content .contact-form label span.sublabel { font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 11px; color: #9C9B9B }
 #content .contact-form li.text-field input, #content .contact-form li.checkbox-field input, #content .contact-form li.file-field input, #content .contact-form li select, #content .contact-form li textarea { border:1px solid #cecbcb; margin-top:10px; padding:10px; }
 #content .contact-form li.text-field input, #content .contact-form li select { font-size: 12px; background-color:#fff; width:97.5%; }
@@ -655,12 +656,13 @@ input#s { padding:5px; }
     border: 1px solid #D5D4D4;
     cursor: pointer;
     display: block;
-    font-size: 9px;
+    font-size: 12px;
     height: 30px;
     letter-spacing: 1px;
     padding: 0 4px;
     text-transform: uppercase;
-    margin:0;
+    margin:0 22px 0 0;
+    font-weight: bold;
     
 }
 #content .contact-form li.submit-button input:hover { background: url("images/input_pattern_hover.png") repeat-x scroll 0 0 #fff; }

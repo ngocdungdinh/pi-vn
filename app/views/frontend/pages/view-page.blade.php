@@ -36,7 +36,11 @@
 			<div class="posts_space"></div>
 			<div id="post-105" class="post-105 post type-post status-publish format-standard hentry category-glasses category-uncategorized category-vintage hentry-post group blog-big">
 				<div class="post_header group">
-					<img width="640" height="295" src="{{ asset($media->mpath . '/640x295_crop/' . $media->mname) }}" class="attachment-blog_big wp-post-image" alt="blog3" title="blog3" />
+					@if($media)
+						<img width="640" height="295" src="{{ asset($media->mpath . '/640x295_crop/' . $media->mname) }}" class="attachment-blog_big wp-post-image" />
+					@else
+						<img width="640" height="295" src="{{ asset('assets/images/640x295_noimage.jpg') }}" class="attachment-blog_big wp-post-image" />
+					@endif
 					<div class="post_title">
 						<h2>{{ $page->title }}</h2>
 					</div>
@@ -44,7 +48,7 @@
 				<div class="post_content group">
 					<div class="post_meta">
 						<div class="post_date">
-							<?php $post_date = explode('/', date("d/M/Y",strtotime($page->publish_date))) ?>
+							<?php $post_date = explode('/', date("d/M/Y",strtotime($page->created_at))) ?>
 							<span class="day">{{$post_date[0]}}</span>
 							<span class="month">{{$post_date[1]}}</span>
 							<span class="year">{{$post_date[2]}}</span>
@@ -63,22 +67,20 @@
 	<!-- END CONTENT -->
 	<!-- START SIDEBAR -->
 	<div id="sidebar" class="blog group">
-		<div id="search-3" class="widget-1 widget-first widget widget_search">
-			<h3>Search</h3>
-			<form role="search" method="get" id="searchform" action="home.html" class="group">
-				<div><label class="screen-reader-text" for="s">Search</label>
-					<input type="text" value="" name="s" id="s" />
-					<input type="submit" id="searchsubmit" value="Search" />
-					<input type="hidden" name="post_type" value="post" />
-				</div>
-			</form>
-		</div>
 		<div id="popular-posts-3" class="widget-2 widget popular-posts">
-			<h3>Popular Posts</h3>
+			<h3>{{$page_group}}</h3>
 			<div class="recent-post group">
 				@foreach($pages as $key => $page)
 				<div class="hentry-post group">
-					<div class="thumb-img"><a href="{{ URL::to($page_slug.'/'.$page->slug) }}"><img width="55" height="55" src="{{ asset($page->mpath . '/100x100_crop/' . $media->mname) }}" class="attachment-thumb_recentposts wp-post-image" alt="blog2" title="blog2" /></a></div>
+					<div class="thumb-img">
+						<a href="{{ URL::to($page_slug.'/'.$page->slug) }}">
+							@if($page->mpath)
+								<img width="55" height="55" src="{{ asset($page->mpath . '/100x100_crop/' . $page->mname) }}" class="attachment-thumb_recentposts wp-post-image" />
+							@else
+								<img width="55" height="55" src="{{ asset('assets/images/100x100_noimage.jpg') }}" class="attachment-thumb_recentposts wp-post-image" />
+							@endif
+						</a>
+					</div>
 					<a href="{{ URL::to($page_slug.'/'.$page->slug) }}" title="Looking for a nice theme for your shop?" class="title">{{$page->title}}</a>
 					<p class="post-date">July 26, 2011</p>
 				</div>

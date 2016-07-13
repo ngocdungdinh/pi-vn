@@ -41,7 +41,7 @@ class ContactUsController extends BaseController {
 		// If validation fails, we'll exit the operation now.
 		if ($validator->fails())
 		{
-			return Redirect::route('contact-us')->withErrors($validator);
+			return Redirect::route('lien-he')->withErrors($validator);
 		}
 
 		# TODO !

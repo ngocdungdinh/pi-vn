@@ -297,26 +297,37 @@ Trang chủ ::
 		</div>
 		<!-- END CONTENT -->
 		<!-- START SIDEBAR -->
-		<div id="sidebar" class="group">
+		<div id="sidebar" class="shop group">
 			<div id="product_categories-3" class="widget-1 widget-first widget widget_product_categories">
 				<h3>Sản phẩm</h3>
 				<ul>
 					<li class="cat-item cat-item-22">
 						<a href="#" title="View all posts filed under Brand">Đồ nội thất</a>
 						<ul class="children">
-							<li class="cat-item cat-item-28"><a href="#" title="View all posts filed under Wallmart">Nội thất phòng khách</a></li>
-							<li class="cat-item cat-item-26"><a href="#" title="View all posts filed under Ikea">Nội thất bếp</a></li>
-							<li class="cat-item cat-item-25"><a href="#" title="View all posts filed under Pathio">Nội thất phòng ngủ</a></li>
-							<li class="cat-item cat-item-24"><a href="#" title="View all posts filed under Furnishop">Đèn trang trí</a></li>
+							@foreach($prod_cate_type_1 as $pcat_1)
+								@if($pcat_1->parent_id == 0)
+									<li class="cat-item cat-item-28"><a href="{{ route('shop-category', $pcat_1->slug) }}" title="Xem tất cả sản phẩm trong {{ $pcat_1->name }}">{{ $pcat_1->name }}</a></li>
+								@endif
+							@endforeach
 						</ul>
 					</li>
 					<li class="cat-item cat-item-18">
 						<a href="#" title="View all posts filed under Categories">Vật liệu xây dựng</a>
 						<ul class="children">
-							<li class="cat-item cat-item-34"><a href="#" title="View all posts filed under Wood">Sơn</a></li>
-							<li class="cat-item cat-item-33"><a href="#" title="View all posts filed under Bathroom">Chống thấm Sika</a></li>
-							<li class="cat-item cat-item-21"><a href="#" title="View all posts filed under Kitchen">Sàn gỗ</a></li>
-							<li class="cat-item cat-item-20"><a href="#" title="View all posts filed under Bedroom">Sản phẩm khác</a></li>
+							@foreach($prod_cate_type_2 as $pcat_2)
+								@if($pcat_2->parent_id == 0)
+									<li class="cat-item cat-item-28">
+										<a href="{{ route('shop-category', $pcat_2->slug) }}" title="Xem tất cả sản phẩm trong {{ $pcat_2->name }}">{{ $pcat_2->name }}</a>
+										<ul>
+											@foreach($prod_cate_type_2 as $spcat_2)
+												@if($spcat_2->parent_id == $pcat_2->id)
+													<li class="cat-item cat-item-28" style="margin-left: 5px;">+ <a href="{{ route('shop-category', $spcat_2->slug) }}">{{$spcat_2->name}}</a></li>
+												@endif
+											@endforeach
+										</ul>
+									</li>
+								@endif
+							@endforeach
 						</ul>
 					</li>
 				</ul>

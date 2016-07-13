@@ -31,12 +31,11 @@ class BaseController extends Controller {
 
 		$this->data['categories'] = Category::where('showon_menu', '>', 0)->orderBy('showon_menu', 'ASC')->get();
 
-		$this->data['product_categories'] = CartCategory::orderBy('showon_menu', 'ASC')->get();
+		$this->data['prod_cate_type_1'] = CartCategory::where('type_id', 1)->orderBy('showon_menu', 'ASC')->get();
+		$this->data['prod_cate_type_2'] = CartCategory::where('type_id', 2)->orderBy('showon_menu', 'ASC')->get();
 
-		$this->data['manufacturers'] = CartAttribute::select('cart_attributes.*', 'medias.mpath', 'medias.mname')
-			->leftJoin('medias', 'medias.id', '=', 'cart_attributes.media_id')
-			->where('cart_attributes.parent_id', 15) // thuong-hieu
-			->orderBy('position', 'ASC')->get();
+		$this->data['intros'] = Post::where('post_type', 'intro')->get();
+		$this->data['services'] = Post::where('post_type', 'service')->get();
 
 		
 		$this->data['payment_gateways'] = Config::get('cart.payment_gateways');

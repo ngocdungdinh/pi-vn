@@ -26,7 +26,7 @@
 	</title>
 
 	<!-- CSS -->
-	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/style.css') }}" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-width: 980px)" href="{{ asset('assets/css/lessthen980.css') }}" />
 	<link rel="stylesheet" type="text/css" media="screen and (max-width: 600px)" href="{{ asset('assets/css/lessthen600.css') }}" />
@@ -80,7 +80,7 @@
 		#content { width:750px; }
 		#content.blog { width:640px; }
 		#sidebar { width:170px; }
-		#sidebar.shop { width:170px; }
+		#sidebar.shop { width:200px; }
 		#sidebar.page { width:280px; }
 		#sidebar.blog { width:280px; }
 		.products li { width:164px !important; }
@@ -122,7 +122,7 @@
 				<div class="inner group">
 					<!-- START LOGO -->
 					<div id="logo" class="group">
-						<a href="index.html" title="">
+						<a href="{{route('home')}}" title="">
 							<img src="{{ asset('assets/images/pivn-logo.jpg') }}" height="110" alt=""/>
 						</a>
 					</div>
@@ -151,54 +151,59 @@
 					<div id="nav" class="group elegant">
 						<ul id="menu-navigation" class="level-1">
 							<li>
-								<a href="index.html">TRANG CHỦ</a>
+								<a href="{{route('home')}}">TRANG CHỦ</a>
 							</li>
 							<li>
 								<a href="#">GIỚI THIỆU</a>
 								<ul class="sub-menu">
-									<li><a href="#">Quá trình hình thành</a></li>
-									<li><a href="#">Lĩnh vực hoạt động</a></li>
-									<li><a href="#">Tiêu chí</a></li>
+									@foreach($intros as $intro)
+										<li><a href="{{route('view-intro', $intro->slug)}}">{{$intro->title}}</a></li>
+									@endforeach
 								</ul>
 							</li>
 							<li>
 								<a href="#">DỊCH VỤ</a>
 								<ul class="sub-menu">
-									<li><a href="#">Thiết kế kiến trúc & Nội thất</a></li>
-									<li><a href="#">Thi công Nội thất - Ngoại thất</a></li>
-									<li><a href="#">Đo đạc bản đồ</a></li>
+									@foreach($services as $service)
+										<li><a href="{{route('view-service', $service->slug)}}">{{$service->title}}</a></li>
+									@endforeach
 								</ul>
 							</li>
 							<li>
 								<a href="#">ĐỒ NỘI THẤT</a>
 								<ul class="sub-menu">
-									<li><a href="#">Nội thất phòng khách</a></li>
-									<li><a href="#">Nội thất bếp</a></li>
-									<li><a href="#">Nội thất phòng ngủ</a></li>
-									<li><a href="#">Đèn trang trí</a></li>
+								@foreach($prod_cate_type_1 as $pcat_1)
+									@if($pcat_1->parent_id == 0)
+										<li><a href="{{ route('shop-category', $pcat_1->slug) }}">{{ $pcat_1->name }}</a></li>
+									@endif
+								@endforeach
 								</ul>
 							</li>
 							<li>
 								<a href="#">VẬT LIỆU XÂY DỰNG</a>
 								<ul class="sub-menu">
-									<li><a href="#">Sơn</a></li>
-									<li><a href="#">Chống thấm Sika</a></li>
-									<li><a href="#">Sàn Gỗ</a></li>
-									<li><a href="#">Sản phẩm khác</a></li>
+									@foreach($prod_cate_type_2 as $pcat_2)
+										@if($pcat_2->parent_id == 0)
+											<li><a href="{{ route('shop-category', $pcat_2->slug) }}">{{ $pcat_2->name }}</a></li>
+										@endif
+									@endforeach
 								</ul>
 							</li>
-							<li>
-								<a href="#">CÔNG TRÌNH</a>
-								<ul class="sub-menu">
-									<li><a href="#">Nội thất chung cư</a></li>
-									<li><a href="#">Nội thất nhà ở</a></li>
-									<li><a href="#">Kiến trúc nhà ở</a></li>
-									<li><a href="#">Văn phòng & Showroom</a></li>
-									<li><a href="#">Bar & Nhà hàng</a></li>
-								</ul>
-							</li>
-							<li><a href="#">TIN TỨC</a></li>
-							<li><a href="#">LIÊN HỆ</a></li>
+							@foreach($categories as $cate)
+								@if($cate->parent_id == 0)
+									<li>
+										<a href="{{route('view-category', $cate->slug)}}">{{$cate->name}}</a>
+										<ul class="sub-menu">
+											@foreach($categories as $subcat)
+												@if($subcat->parent_id == $cate->id)
+													<li><a href="{{route('view-category', $subcat->slug)}}">{{$subcat->name}}</a></li>
+												@endif
+											@endforeach
+										</ul>
+									</li>
+								@endif
+							@endforeach
+							<li><a href="{{route('lien-he')}}">LIÊN HỆ</a></li>
 						</ul>
 					</div>
 					<!-- END NAV -->
@@ -210,12 +215,6 @@
 
 			@yield('content')
 
-
-
-
-
-
-
 			<!-- START FOOTER -->
 			<div id="footer" class="group footer-sidebar-right columns-3">
 				<div class="inner">
@@ -224,9 +223,9 @@
 							<h3>GIỚI THIỆU</h3>
 							<div class="menu-utilities-container">
 								<ul id="menu-utilities" class="menu">
-									<li><a href="#">Quá trình hình thành</a></li>
-									<li><a href="#">Lĩnh vực hoạt động</a></li>
-									<li><a href="#">Tiêu chí</a></li>
+									@foreach($intros as $intro)
+										<li><a href="{{route('view-intro', $intro->slug)}}">{{$intro->title}}</a></li>
+									@endforeach
 								</ul>
 							</div>
 						</div>
@@ -234,9 +233,9 @@
 							<h3>DỊCH VỤ</h3>
 							<div class="menu-categories-footer-container">
 								<ul id="menu-categories-footer" class="menu">
-									<li><a href="#">Thiết kế kiến trúc & Nội thất</a></li>
-									<li><a href="#">Thi công Nội thất - Ngoại thất</a></li>
-									<li><a href="#">Đo đạc bản đồ</a></li>
+									@foreach($services as $service)
+										<li><a href="{{route('view-intro', $service->slug)}}">{{$service->title}}</a></li>
+									@endforeach
 								</ul>
 							</div>
 						</div>

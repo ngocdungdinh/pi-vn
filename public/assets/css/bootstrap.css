@@ -286,6 +286,7 @@ table {
   }
 }
 
+/*
 *,
 *:before,
 *:after {
@@ -293,6 +294,7 @@ table {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+*/
 
 html {
   font-size: 62.5%;
