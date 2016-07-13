@@ -147,7 +147,7 @@ body .last, body .widget-last { margin-right:0; border-right:0; }
 /****************************** ELEGANT *******************************************/
 #nav.elegant {height:45px;}
 #nav.elegant ul { list-style:none; margin:0 0 0 -15px; }
-#nav.elegant ul li { float:left; padding:13px; line-height:15px; position:relative; }
+#nav.elegant ul li { float:left; padding:13px; padding-right: 0px; line-height:15px; position:relative; }
 #nav.elegant ul li a { color:#fff; font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:1.2em; }
 #nav.elegant ul li.parent a { color:#fff; font-family:'Trebuchet MS', Helvetica, sans-serif; font-size:1.2em; text-transform: uppercase; }
 #nav.elegant ul li a:hover { color:#b9b8b8; }

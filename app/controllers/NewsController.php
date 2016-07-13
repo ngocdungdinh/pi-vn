@@ -146,7 +146,7 @@ class NewsController extends BaseController {
 			->where('status', 'published')
 			->where('post_type', 'post')
 			->where('slug', '!=', $slug)
-			->where('publish_date', '>', $last_week)
+			//->where('publish_date', '>', $last_week)
 			->orderBy('view_count', 'DESC')->take(5)->get();
 
 

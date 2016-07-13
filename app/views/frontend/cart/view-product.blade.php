@@ -32,18 +32,16 @@
 			<div class="product type-product status-publish hentry">
 
 				<div class="images">
-					<a href="images/product_single/originalparquet_001_big.jpg" class="zoom" rel="prettyphoto[gallery]">
-						<img width="530" height="345" src="images/product_single/originalparquet_001_big-530x345.jpg" class="attachment-530x345 wp-post-image" alt="originalparquet_001_big" title="originalparquet_001_big" />
+					<a href="{{ asset($product->mpath .'/550x500/'. $product->mname ) }}" class="zoom" rel="prettyphoto[gallery]">
+						<img width="530" height="345" src="{{ asset($product->mpath .'/530x345_crop/'. $product->mname ) }}" class="attachment-530x345 wp-post-image" />
 					</a>
 
 					<div class="thumbnails">
-						<a href="images/product_single/albatros_niwa_001_big.jpg" title="albatros_niwa_001_big" rel="prettyphoto[gallery]" class="zoom first">
-							<img width="90" height="90" src="images/product_single/albatros_niwa_001_big-90x90.jpg" class="attachment-90x90" alt="albatros_niwa_001_big" title="albatros_niwa_001_big" />
+						@foreach($product_medias as $key => $m)
+						<a href="{{ asset($m->mpath .'/550x500/'. $m->mname ) }}" title="albatros_niwa_001_big" rel="prettyphoto[gallery]" class="zoom {{{($key==0) ? 'first' : ''}}}">
+							<img width="90" height="90" src="{{ asset($m->mpath .'/100x100_crop/'. $m->mname ) }}" class="attachment-90x90" />
 						</a>
-
-						<a href="images/product_single/palaceliving_002_big.jpg" title="palaceliving_002_big" rel="prettyphoto[gallery]" class="zoom ">
-							<img width="90" height="90" src="images/product_single/palaceliving_002_big-90x90.jpg" class="attachment-90x90" alt="palaceliving_002_big" title="palaceliving_002_big" />
-						</a>
+						@endforeach
 					</div>
 					<span class="onsale">Sale!</span>
 				</div>
@@ -62,69 +60,69 @@
 				</div>
 				<div id="product-tabs">
 					<ul class="tabs">
-						<li class="active"><a href="#related-products">Related Products</a></li>
-						<li><a href="#tab-description">Description</a></li>
+						{{--<li class="active"><a href="#related-products">Related Products</a></li>--}}
+						<li class="active"><a href="#tab-description">Description</a></li>
 					</ul>
 					<div class="containers">
-						<div class="panel" id="related-products">
-							<div class="related products">
-								<ul class="products">
-									<li class="product border shadow first last-row">
-										<a href="#">
-											<div class="thumbnail">
-												<img width="150" height="150" src="images/common/001.png" class="attachment-shop_small wp-post-image" alt="001" title="001" />
-												<div class="thumb-shadow"></div>
-												<strong class="below-thumb">Elegant Glasses</strong>
-											</div>
-											<span class="price">&#36;250.00</span>
-										</a>
-										<div class="buttons">
-											<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>
-										</div>
-									</li>
-									<li class="product border shadow last-row">
-										<a href="#">
-											<div class="thumbnail">
-												<img width="150" height="150" src="images/common/warmroom-150x150.jpg" class="attachment-shop_small wp-post-image" alt="warmroom" title="warmroom" />
-												<div class="thumb-shadow"></div>
-												<strong class="below-thumb">Hot Room</strong>
-											</div>
-											<span class="price">&#36;730.00</span>
-										</a>
-										<div class="buttons">
-											<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>
-										</div>
-									</li>
-									<li class="product border shadow last-row">
-										<a href="#">
-											<div class="thumbnail">
-												<img width="150" height="150" src="images/common/ktichen21-150x150.jpg" class="attachment-shop_small wp-post-image" alt="ktichen2" title="ktichen2" />
-												<div class="thumb-shadow"></div>
-												<strong class="below-thumb">Wood Kitchen</strong>
-											</div>
-											<span class="price">&#36;367.00</span>
-										</a>
-										<div class="buttons">
-											<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>
-										</div>
-									</li>
-									<li class="product border shadow last-row">
-										<a href="#">
-											<div class="thumbnail">
-												<img width="150" height="150" src="images/common/warmroom-150x150.jpg" class="attachment-shop_small wp-post-image" alt="kitchen" title="kitchen" />
-												<div class="thumb-shadow"></div>
-												<strong class="below-thumb">Dark Kitchen</strong>
-											</div>
-											<span class="price">&#36;940.00</span>
-										</a>
-										<div class="buttons">
-											<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>
-										</div>
-									</li>
-								</ul>
-								<div class="clear"></div>
-							</div>
-						</div>
+						{{--<div class="panel" id="related-products">--}}
+							{{--<div class="related products">--}}
+								{{--<ul class="products">--}}
+									{{--<li class="product border shadow first last-row">--}}
+										{{--<a href="#">--}}
+											{{--<div class="thumbnail">--}}
+												{{--<img width="150" height="150" src="images/common/001.png" class="attachment-shop_small wp-post-image" alt="001" title="001" />--}}
+												{{--<div class="thumb-shadow"></div>--}}
+												{{--<strong class="below-thumb">Elegant Glasses</strong>--}}
+											{{--</div>--}}
+											{{--<span class="price">&#36;250.00</span>--}}
+										{{--</a>--}}
+										{{--<div class="buttons">--}}
+											{{--<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>--}}
+										{{--</div>--}}
+									{{--</li>--}}
+									{{--<li class="product border shadow last-row">--}}
+										{{--<a href="#">--}}
+											{{--<div class="thumbnail">--}}
+												{{--<img width="150" height="150" src="images/common/warmroom-150x150.jpg" class="attachment-shop_small wp-post-image" alt="warmroom" title="warmroom" />--}}
+												{{--<div class="thumb-shadow"></div>--}}
+												{{--<strong class="below-thumb">Hot Room</strong>--}}
+											{{--</div>--}}
+											{{--<span class="price">&#36;730.00</span>--}}
+										{{--</a>--}}
+										{{--<div class="buttons">--}}
+											{{--<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>--}}
+										{{--</div>--}}
+									{{--</li>--}}
+									{{--<li class="product border shadow last-row">--}}
+										{{--<a href="#">--}}
+											{{--<div class="thumbnail">--}}
+												{{--<img width="150" height="150" src="images/common/ktichen21-150x150.jpg" class="attachment-shop_small wp-post-image" alt="ktichen2" title="ktichen2" />--}}
+												{{--<div class="thumb-shadow"></div>--}}
+												{{--<strong class="below-thumb">Wood Kitchen</strong>--}}
+											{{--</div>--}}
+											{{--<span class="price">&#36;367.00</span>--}}
+										{{--</a>--}}
+										{{--<div class="buttons">--}}
+											{{--<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>--}}
+										{{--</div>--}}
+									{{--</li>--}}
+									{{--<li class="product border shadow last-row">--}}
+										{{--<a href="#">--}}
+											{{--<div class="thumbnail">--}}
+												{{--<img width="150" height="150" src="images/common/warmroom-150x150.jpg" class="attachment-shop_small wp-post-image" alt="kitchen" title="kitchen" />--}}
+												{{--<div class="thumb-shadow"></div>--}}
+												{{--<strong class="below-thumb">Dark Kitchen</strong>--}}
+											{{--</div>--}}
+											{{--<span class="price">&#36;940.00</span>--}}
+										{{--</a>--}}
+										{{--<div class="buttons">--}}
+											{{--<a href="#" class="details">DETAILS</a>&nbsp;<a href="#" class="add-to-cart">ADD TO CART</a>--}}
+										{{--</div>--}}
+									{{--</li>--}}
+								{{--</ul>--}}
+								{{--<div class="clear"></div>--}}
+							{{--</div>--}}
+						{{--</div>--}}
 						<div class="panel" id="tab-description">
 							<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&#8217;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&#8217;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
 						</div>

@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'pjb_sammishop',
-			'username'  => 'sammi',
-			'password'  => '6fnDHCTTV5XXRspK',
+			'database'  => 'pivncom_db2016',
+			'username'  => 'pivncom_dba',
+			'password'  => 'pivncom@2016',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
