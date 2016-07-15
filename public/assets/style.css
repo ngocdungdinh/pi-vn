@@ -100,7 +100,7 @@ body .last, body .widget-last { margin-right:0; border-right:0; }
 #nav 		{ float:left; margin-top:15px; }
 #slogan 	{ max-width:800px; text-align:center; margin:1em auto 3em; }
 #slider 	{ height:338px; padding-top:40px; }
-#primary    { padding:40px 0 30px; }
+#primary    { padding:0px 0 30px; }
 #content 	{ width:640px; }
 #sidebar 	{ width:280px; }
 #footer 	{ padding:30px 0; clear:both; }
@@ -450,7 +450,7 @@ h2.red-normal { margin-bottom: 20px; }
 .post_meta .post_twitter { background: url('images/icons/twitter.png') no-repeat left center; height: 25px; padding-left: 25px; line-height: 27px; }
 
 .post_content { width: 100%; }
-.post_content p { padding-top: 20px;  }
+.post_content p { padding-top: 20px;font-size: 14px;  }
 .post_content p+p { padding-top: 0; }
 .internal-post .post_content p, .post_nothumb p { padding-top: 0;  }
 
@@ -1052,3 +1052,7 @@ a.linkedin-small  { background:url('images/icons/small-socials/linkedin.png') no
 .right{float:right;}
 .nomargin{margin:0}
 .nopadding{padding:0}
+
+#histats_counter{
+    width:150px;float: left;
+}
