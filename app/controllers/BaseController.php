@@ -38,7 +38,7 @@ class BaseController extends Controller {
 		$this->data['prod_cate_type_1'] = CartCategory::where('type_id', 1)->orderBy('showon_menu', 'ASC')->get();
 		$this->data['prod_cate_type_2'] = CartCategory::where('type_id', 2)->orderBy('showon_menu', 'ASC')->get();
 
-		$this->data['intros'] = Post::where('post_type', 'intro')->get();
+		$this->data['intros'] = Post::where('post_type', 'intro')->where('status','published')->orderBy('updated_at', 'DESC')->get();
 		$this->data['services'] = Post::where('post_type', 'service')->get();
 
 		

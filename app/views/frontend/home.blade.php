@@ -33,7 +33,7 @@ Trang chủ ::
 	var 	yiw_slider_type = 'thumbnails',
 			yiw_slider_thumbnails_fx = 'fade',
 			yiw_slider_thumbnails_speed = 300,
-			yiw_slider_thumbnails_timeout = 50000;
+			yiw_slider_thumbnails_timeout = 5000;
 </script>
 
 <div class="slider-mobile">

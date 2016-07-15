@@ -1052,3 +1052,7 @@ a.linkedin-small  { background:url('images/icons/small-socials/linkedin.png') no
 .right{float:right;}
 .nomargin{margin:0}
 .nopadding{padding:0}
+
+#histats_counter{
+    width:150px;float: left;
+}
