@@ -65,7 +65,7 @@
 			content_height:			470,
 			fit_to_parent:			false,
 			auto:					false,
-			interval:				3000,
+			interval:				10000,
 			continuous:				false,
 			loading:				true,
 			tooltip_width:			200,
@@ -81,7 +81,7 @@
 			pauseonover:			true,
 			stoponclick:			true,
 			transition:				'hslide', /* hslide / vslide / fade */
-			transition_delay:		300,
+			transition_delay:		5000,
 			transition_speed:		500,
 			show_caption:			'onload', /* onload / onhover / show */
 			thumbnails:				false,
