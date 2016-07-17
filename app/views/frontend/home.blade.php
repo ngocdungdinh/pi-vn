@@ -48,7 +48,7 @@ Trang chủ ::
 	<!--<div class="clear"></div>-->
 	<div class="border-line"></div>
 	<div id="slogan" class="inner">
-		<h1>Các dự án đã & đang thực hiện</h1>
+		<h1>Thông tin nổi bật</h1>
 	</div>
 	<div id="post-206" class="post-206 page type-page status-publish hentry group">
 		@foreach($home_posts as $key => $hp)
