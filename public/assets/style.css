@@ -1056,3 +1056,10 @@ a.linkedin-small  { background:url('images/icons/small-socials/linkedin.png') no
 #histats_counter{
     width:150px;float: left;
 }
+#sidebar .widget_product_categories ul li{
+    font-size: 14px;
+}
+
+#sidebar .almost-all-categories ul li{
+    font-size: 14px;
+}
