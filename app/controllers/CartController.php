@@ -79,39 +79,47 @@ class CartController extends BaseController {
 			$this->data['parent_category'] = $category->parent;
 		}
 
-		switch ($filter) {
-			case 'discount':
-				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
-					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
-					->where('status', 'published')
-					->where('discount_price', '>', 0)
-					->orderBy('updated_at', 'DESC')->paginate(24);
-				$this->data['meta_title'] = 'Sản phẩm khuyến mãi';
-				break;
-			case 'review':
-				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
-					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
-					->where('status', 'published')
-					->orderBy('review_count', 'DESC')->paginate(24);
-				$this->data['meta_title'] = 'Sản phẩm được đánh giá tốt';
-				break;
-			case 'featured':
-				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
-					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
-					->where('is_featured', 1)
-					->where('status', 'published')
-					->orderBy('updated_at', 'DESC')->paginate(24);
-				$this->data['meta_title'] = 'Sản phẩm nổi bật';
-				break;
-			
-			default:
-				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
-					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
-					->where('status', 'published')
-					->orderBy('created_at', 'DESC')->paginate(24);
-				$this->data['meta_title'] = 'Sản phẩm mới';
-				break;
-		}
+//		switch ($filter) {
+//			case 'discount':
+//				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
+//					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
+//					->where('status', 'published')
+//					->where('discount_price', '>', 0)
+//					->orderBy('updated_at', 'DESC')->paginate(24);
+//				$this->data['meta_title'] = 'Sản phẩm khuyến mãi';
+//				break;
+//			case 'review':
+//				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
+//					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
+//					->where('status', 'published')
+//					->orderBy('review_count', 'DESC')->paginate(24);
+//				$this->data['meta_title'] = 'Sản phẩm được đánh giá tốt';
+//				break;
+//			case 'featured':
+//				$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
+//					->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
+//					->where('is_featured', 1)
+//					->where('status', 'published')
+//					->orderBy('updated_at', 'DESC')->paginate(24);
+//				$this->data['meta_title'] = 'Sản phẩm nổi bật';
+//				break;
+//
+//			default:
+		$this->data['products'] = $category->rposts()->select('cart_products.*', 'medias.mpath', 'medias.mname')
+			->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
+			->where('status', 'published')
+			->orderBy('created_at', 'DESC')->paginate(24);
+		$this->data['meta_title'] = 'Sản phẩm mới';
+
+//				break;
+//		}
+
+//		$this->data['products'] = $products = CartProduct::select('cart_products.*', 'medias.mpath', 'medias.mname')
+//			->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
+//			->where('category_id', '=', $category->id)
+//			->where('status', 'published')
+//			->orderBy('created_at', 'DESC')->paginate(24);
+//		$this->data['meta_title'] = 'Sản phẩm mới';
 
 		// Show the page
 		return View::make('frontend/cart/category', $this->data);

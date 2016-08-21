@@ -47,6 +47,7 @@ class HomeController extends BaseController {
 
 		$this->data['last_products'] = CartProduct::select('cart_products.*', 'medias.mpath', 'medias.mname')
 			->leftJoin('medias', 'medias.id', '=', 'cart_products.media_id')
+			->where('showon_homepage', '1')
 			->where('status', 'published')
 			->orderBy('created_at', 'DESC')->paginate(24);
 			
